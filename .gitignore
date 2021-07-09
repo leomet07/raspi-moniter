@@ -11,3 +11,5 @@ build/
 public/build/
 
 /dashboard/public/build/
+
+dump*.txt

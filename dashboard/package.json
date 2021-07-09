@@ -20,6 +20,8 @@
 	},
 	"dependencies": {
 		"chart.js": "^3.4.1",
+		"chartjs-adapter-moment": "^1.0.0",
+		"moment": "^2.29.1",
 		"sirv-cli": "^1.0.0",
 		"svelte-routing": "^1.6.0"
 	}
