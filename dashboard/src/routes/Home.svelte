@@ -109,11 +109,13 @@
 
 <main id="home">
 	<h1>Home</h1>
-	<div class="canvas_container">
-		<canvas class="chartjschart" id="speeds" />
-	</div>
-	<div class="canvas_container">
-		<canvas class="chartjschart" id="losses" />
+	<div class="flex-container">
+		<div class="flex-child canvas_container">
+			<canvas class="chartjschart" id="speeds" />
+		</div>
+		<div class="flex-child canvas_container">
+			<canvas class="chartjschart" id="losses" />
+		</div>
 	</div>
 </main>
 
@@ -124,9 +126,17 @@
 	}
 	.canvas_container {
 		height: 600px;
+		width: 50%;
 		margin-bottom: 100px;
 	}
 	#home {
 		text-align: center;
+	}
+	.flex-container {
+		display: flex;
+	}
+
+	.flex-child {
+		flex: 1;
 	}
 </style>
