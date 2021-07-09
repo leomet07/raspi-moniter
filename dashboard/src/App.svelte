@@ -8,7 +8,7 @@
 </script>
 
 <Router {url}>
-	<nav>
+	<nav id="navbar">
 		<Link to="/">Home</Link>
 		<Link to="about">About</Link>
 	</nav>
@@ -21,5 +21,8 @@
 <style>
 	* {
 		box-sizing: border-box;
+	}
+	#navbar {
+		text-align: center;
 	}
 </style>
