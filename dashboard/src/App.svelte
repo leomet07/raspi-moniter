@@ -19,7 +19,7 @@
 
 <Router {url}>
 	<nav id="navbar">
-		<Link to="/">Home</Link>
+		<Link to="/">Home</Link> |
 		<Link to="about">About</Link>
 	</nav>
 	<div>

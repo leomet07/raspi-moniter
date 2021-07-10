@@ -4,6 +4,7 @@
 	import moment from "moment";
 
 	import { onMount } from "svelte";
+	let data = null;
 	onMount(async () => {
 		console.log("Hello Home!");
 
@@ -12,7 +13,7 @@
 			headers: {},
 		});
 
-		let data = await response.json();
+		data = await response.json();
 
 		console.log(data);
 
@@ -109,7 +110,9 @@
 
 <main id="home">
 	<h1>Home</h1>
-	<div class="flex-container">
+
+	<h2 class={data != null ? "hide" : ""}>Loading...</h2>
+	<div class={data != null ? "flex-container" : "hide"}>
 		<div class="flex-child canvas_container">
 			<canvas class="chartjschart" id="speeds" />
 		</div>
@@ -126,17 +129,25 @@
 	}
 	.canvas_container {
 		height: 600px;
-		width: 50%;
+
 		margin-bottom: 100px;
 	}
 	#home {
 		text-align: center;
 	}
-	.flex-container {
-		display: flex;
+	.hide {
+		display: none;
 	}
+	@media only screen and (min-width: 1300px) {
+		.flex-container {
+			display: flex;
+		}
 
-	.flex-child {
-		flex: 1;
+		.flex-child {
+			flex: 1;
+		}
+		.canvas_container {
+			width: 50%;
+		}
 	}
 </style>
