@@ -6,7 +6,7 @@
 		"build": "rollup -c",
 		"serve": "rollup -c -w",
 		"dev": "rollup -c -w",
-		"start": "rollup -c && sirv public --no-clear --host "
+		"start": "npm run build && http-server public/"
 	},
 	"devDependencies": {
 		"@rollup/plugin-commonjs": "^17.0.0",
@@ -22,6 +22,7 @@
 		"chart.js": "^3.4.1",
 		"chartjs-adapter-moment": "^1.0.0",
 		"dotenv": "^10.0.0",
+		"http-server": "^0.12.3",
 		"moment": "^2.29.1",
 		"sirv-cli": "^1.0.0",
 		"svelte-preprocess": "^4.7.4",
