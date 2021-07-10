@@ -8,6 +8,9 @@ from datetime import datetime
 
 expected = ["upload", "download", "loss", "utctime"]
 
+filepath = os.path.join(os.path.dirname(os.path.realpath(sys.argv[0])), "data.csv")
+
+
 def run_speedtest():
 	output = str(subprocess.getoutput(["speedtest"])).strip().split("\n")
 
@@ -43,8 +46,10 @@ def log_data(download, upload, loss, time):
 	print(download, upload, loss, time)
 	names = []
 	
-	if os.path.exists("data.csv"):
-		with open("data.csv", 'r') as csvfile:
+	
+
+	if os.path.exists(filepath):
+		with open(filepath, 'r') as csvfile:
 			names = csvfile.readline().strip().split(",")
 		
 		if names != expected:
@@ -56,13 +61,13 @@ def log_data(download, upload, loss, time):
 		create_new_datacsv()
 	
 		
-	with open("data.csv", 'a') as csvfile:
+	with open(filepath, 'a') as csvfile:
 		csvfile.write("\n" + str(download) + "," + str(upload) + "," + str(loss) + "," + str(time) )
 
 	print("Data appended")
 
 def create_new_datacsv():
-	with open("data.csv", "w") as file:
+	with open(filepath, "w") as file:
 		file.write(",".join(expected))
 	print("Created a new clean data.csv")
 		
