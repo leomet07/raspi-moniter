@@ -16,9 +16,16 @@ def run_speedtest():
 	loss_raw = output[9]
 
 	try:
-		download_parsed = float(download_raw.strip().split(" ")[3])
-		upload_parsed = float(upload_raw.strip().split(" ")[4])
-		loss_parsed = float(loss_raw.strip().split(" ")[6][:3])
+		
+		download_parsed = download_raw.strip().split(" ")
+		download_parsed = float([i for i in download_parsed if i != ""][1])
+
+		upload_parsed = upload_raw.strip().split(" ")
+		upload_parsed = float([i for i in upload_parsed if i != ""][1])
+
+		loss_parsed = loss_raw.strip().split(" ")
+		loss_parsed = float([i for i in loss_parsed if i != ""][2][:3])
+		
 	except:
 		print("An error occured, take a look at the output maybe?")
 		print(download_raw)
