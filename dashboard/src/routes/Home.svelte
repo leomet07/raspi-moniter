@@ -7,7 +7,7 @@
 	onMount(async () => {
 		console.log("Hello Home!");
 
-		let response = await fetch("http://127.0.0.1:4040/get_data", {
+		let response = await fetch(window.BASE_URL + "/get_data", {
 			method: "GET",
 			headers: {},
 		});

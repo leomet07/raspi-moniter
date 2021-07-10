@@ -13,9 +13,9 @@ app = Flask(__name__)
 CORS(app)
 
 
-import logging
-log = logging.getLogger('werkzeug')
-log.setLevel(logging.ERROR)
+# import logging
+# log = logging.getLogger('werkzeug')
+# log.setLevel(logging.ERROR)
 
 
 @app.route('/')
@@ -24,6 +24,7 @@ def hello_world_handler():
 
 @app.route('/get_data')
 def get_data_handler():
+    print("Get Data")
     data = getter.get_data()
 
     return json.dumps(data)
@@ -36,4 +37,6 @@ def get_loss_handler():
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port= os.getenv("PORT") )
+    port = os.getenv("PORT") if os.getenv("PORT") else 4040
+    print("Running on port: ", port)
+    app.run(host="0.0.0.0", port= port )
